@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use MyBlog\Presenters\DateFormatPresenterFactory;
 use MyBlog\Repositories\UserRepository;
 
 class UserController extends Controller
@@ -34,15 +35,16 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
+     * @param DateFormatPresenterFactory $dateFormatPresenterFactory
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request,
+        DateFormatPresenterFactory $dateFormatPresenterFactory)
     {
-
-        App::setLocale($request['lang']);
-
         $users = $this->userRepository
             ->getAgeLargerThan(10);
+
+        $dateFormatPresenterFactory->create($request['lang']);
 
         return view('users.index', compact('users'));
     }

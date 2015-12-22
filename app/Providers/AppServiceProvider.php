@@ -3,17 +3,18 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use MyBlog\Presenters\DateFormatPresenterFactory;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
      *
-     * @return void
+     * @param DateFormatPresenterFactory $dateFormatPresenterFactory
      */
-    public function boot()
+    public function boot(DateFormatPresenterFactory $dateFormatPresenterFactory)
     {
-        //
+        $dateFormatPresenterFactory->create('us');
     }
 
     /**
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 }

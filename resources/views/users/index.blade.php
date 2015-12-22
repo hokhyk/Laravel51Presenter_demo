@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-    @inject('dateFormatPresenter', 'MyBlog\Presenters\DateFormatPresenter')
+    @inject('dateFormatPresenter', 'MyBlog\Presenters\DateFormatPresenterInterface')
     @foreach($users as $user)
         <div>
             <h2>{{ $user->name }}</h2>
