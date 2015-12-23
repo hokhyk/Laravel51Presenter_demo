@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MyBlog\Presenters;
-
 
 use Carbon\Carbon;
 
@@ -16,6 +14,6 @@ class DateFormatPresenter_uk implements DateFormatPresenterInterface
      */
     public function showDateFormat(Carbon $date) : string
     {
-        return $date->format('d, M, Y');
+        return $date->format('d M, Y');
     }
 }

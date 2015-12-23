@@ -41,10 +41,11 @@ class UserController extends Controller
     public function index(Request $request,
         DateFormatPresenterFactory $dateFormatPresenterFactory)
     {
-        $users = $this->userRepository
-            ->getAgeLargerThan(10);
+        $users = $this->userRepository->getAgeLargerThan(10);
 
-        $dateFormatPresenterFactory->create($request['lang']);
+        $locale = ($request['lang']) ? $request['lang'] : 'us';
+
+        $dateFormatPresenterFactory->create($locale);
 
         return view('users.index', compact('users'));
     }

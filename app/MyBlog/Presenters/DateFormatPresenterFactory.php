@@ -1,6 +1,5 @@
 <?php
 
-
 namespace MyBlog\Presenters;
 
 use Illuminate\Support\Facades\App;
@@ -15,5 +14,4 @@ class DateFormatPresenterFactory
         App::bind(DateFormatPresenterInterface::class,
             'MyBlog\Presenters\DateFormatPresenter_' . $locale);
     }
-
 }
