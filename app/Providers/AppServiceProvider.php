@@ -9,12 +9,9 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @param DateFormatPresenterFactory $dateFormatPresenterFactory
      */
-    public function boot(DateFormatPresenterFactory $dateFormatPresenterFactory)
+    public function boot()
     {
-        $dateFormatPresenterFactory->create('us');
     }
 
     /**
